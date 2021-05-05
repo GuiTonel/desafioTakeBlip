@@ -4,7 +4,7 @@
 
 - Faça o clone do projeto.
 - Rode o comando. 
-> npm start
+```shell npm start ```
 - O servidor será iniciado na porta **3333**.
 
 ## Rotas
@@ -37,15 +37,15 @@ Acessa as informações dos repositorios da Take.
 - Retorna um JSON contendo os repositorios nomeados junto com seu Index
 ```json
 {
-  "repository1" {
-    "nomeCompleto",
-    "descricao",
-    "language"
+  "repository1": {
+    "nomeCompleto":,
+    "descricao":,
+    "language":
   },
-  "repository2" {
-    "nomeCompleto",
-    "descricao",
-    "language"
+  "repository2": {
+    "nomeCompleto":,
+    "descricao":,
+    "language":
   }
 }
 ```
