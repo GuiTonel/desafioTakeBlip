@@ -29,8 +29,8 @@ class RepositoryService {
 
             return groupedRepositoriesResponseJson 
 
-        } catch (err) {
-            console.log(err)
+        } catch ( err ) {
+            console.log( err )
             throw Error( "Falha ao recuperar repositorios" )
         }
     }
