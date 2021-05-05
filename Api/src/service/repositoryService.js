@@ -1,16 +1,26 @@
 const repositoryRequest = require( '../request/repositoryRequest' )
 const RepositoryDTO = require( '../request/DTO/repositoryDTO' )
 const RepositoryModel = require( '../model/repositoryModel' )
+const InternalException = require('../exception/internalException')
+const TimeoutException = require('../exception/timeoutException')
+
 
 
 class RepositoryService {
+
+    TIMEOUT = 5000
 
     async getRepositoriesTakeBlip( sort, qtd = 20, language, order, page = 1 ) {
         var groupedRepositoriesResponseJson = {}
         var repositoryDTO = new RepositoryDTO( { sort: sort, direction: order, per_page: qtd, page: page } )
         var repositoryIndex = 0
+        let startTime = Date.now();
+
         try {
             do {
+                if ( Date.now() - startTime >= this.TIMEOUT ) {
+                    throw new TimeoutException()
+                }
                 let responseRepository = await repositoryRequest.getTakeBlipRepositories( repositoryDTO )
  
                 for ( let repository of responseRepository ) {
@@ -19,7 +29,7 @@ class RepositoryService {
                     let repositoryModel = new RepositoryModel( repository.full_name, repository.description, repository.language )
                     
                     repositoryIndex += 1
-                    groupedRepositoriesResponseJson[ `repository${repositoryIndex}` ] = repositoryModel     
+                    groupedRepositoriesResponseJson[ `repository${ repositoryIndex }` ] = repositoryModel     
                 }
                 
                 repositoryDTO.params.page += 1
@@ -31,7 +41,12 @@ class RepositoryService {
 
         } catch ( err ) {
             console.log( err )
-            throw Error( "Falha ao recuperar repositorios" )
+            if ( err instanceof TimeoutException ) {
+                throw new TimeoutException()
+            } 
+            else {
+                throw new InternalException()
+            }
         }
     }
 

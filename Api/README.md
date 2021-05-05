@@ -11,7 +11,7 @@
 - A API está disponivel na WEB pelo endereço  [https://takebliptest.rj.r.appspot.com](https://takebliptest.rj.r.appspot.com)
 
 ## Rotas
-### [GET] v1/repos
+### [GET] /v1/repos
 Acessa as informações dos repositorios da Take.
 
 **QUERY PARAMS**

@@ -1,5 +1,4 @@
 const repositoryService = require( '../service/repositoryService' )
-const InternalException = require('../exception/internalException')
 
 
 class RepositoryController {
@@ -12,9 +11,7 @@ class RepositoryController {
             return res.status(200).json( response ).end()
 
         } catch ( err ) {
-            console.log( err )
-
-            return res.status( InternalException.status ).json( InternalException.message ).end()
+            return res.status( err.status ).json( err.message ).end()
         }
             
     }

@@ -1,8 +1,8 @@
-class InternalException {
+class InternalException extends Error {
     constructor() {
-        this.message = "Erro interno."
+        super( "Erro interno." )
         this.status = 500
     }
 }
 
-module.exports = new InternalException()
+module.exports = InternalException
