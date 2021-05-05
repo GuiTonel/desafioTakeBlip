@@ -3,9 +3,12 @@
 ## Como rodar
 
 - Faça o clone do projeto.
-- Rode o comando. 
-```shell npm start ```
+- Rode o comando  
+```npm start ```
 - O servidor será iniciado na porta **3333**.
+
+## URL na Web
+- A API está disponivel na WEB pelo endereço  [https://takebliptest.rj.r.appspot.com](https://takebliptest.rj.r.appspot.com)
 
 ## Rotas
 ### [GET] v1/repos
@@ -51,8 +54,8 @@ Acessa as informações dos repositorios da Take.
 ```
 
 **Exemplo**
-- *Rota:* /v1/repos?sort=created&qtd=2&language=C%23&order=asc
-- *Retorno:*
+- **Rota:** */v1/repos?sort=created&qtd=2&language=C%23&order=asc*
+- **Retorno:**
  ```json
 {"repository1":{"nomeCompleto":"takenet/library.data","descricao":"Provides a simple abstraction for implementing the repository and unit of work patterns for data-enabled applications","language":"C#"},"repository2":{"nomeCompleto":"takenet/library.logging","descricao":"Provides a simple logging interface for applications and some basic implementations of this interface","language":"C#"}}
 ```
