@@ -4,7 +4,7 @@
 - Criação de uma API a ser utilizado pelo Bot para consumir a API do GitHub e retornar ao bot as informações necessarias.
 
 ## API
-- Contém a api em NodeJS, utlizando as bibliotecas Express, para o servidor e Axios, para o consumo da API do GitHub.
+- API em NodeJS, utlizando as bibliotecas Express, para o servidor e Axios, para o consumo da API do GitHub. Seguindo padrões de projeto e CleanCode.
 - Feito deploy no Google Cloug e pode ser acessada pela URL [https://takebliptest.rj.r.appspot.com](https://takebliptest.rj.r.appspot.com)
 - Há dentro da pasta Api um README mais detalhado com informações sobre rotas e retornos.
 
